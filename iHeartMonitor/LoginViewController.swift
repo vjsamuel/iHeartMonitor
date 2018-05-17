@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().signIn(withEmail: email, password:password, completion:{(user, error) in
                 if let firebaseError = error{
                     // create the alert
+                    print("Error is: \(error)")
                     let alert = UIAlertController(title: "Wrong Credentials", message: firebaseError.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
                     
                     // add an action (button)

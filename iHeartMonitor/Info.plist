@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
 	<string>iHealthMonitor would like to display health data </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>iHealthMonitor would like to use pictures for getting calorie information</string>
+	<key>NSCameraUsageDescription</key>
+	<string>iHealthMonitor would like to take pictures for getting calorie information</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>iHealthMonitor would like to write health data </string>
 	<key>UILaunchStoryboardName</key>

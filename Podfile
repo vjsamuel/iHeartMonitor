@@ -7,7 +7,8 @@ target 'iHeartMonitor' do
   pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
   pod  ‘Firebase/Core’
   pod  ‘Firebase/Auth’
-
+  pod 'Firebase/MLVision'
+  pod 'Firebase/MLVisionTextModel'
   # Pods for iHeartMonitor
 
   target 'iHeartMonitorTests' do

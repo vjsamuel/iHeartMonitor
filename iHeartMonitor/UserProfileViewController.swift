@@ -87,6 +87,7 @@ class UserProfileViewController: UIViewController {
         print("blood type: \(self.getReadablebloodType(bloodType: bloodtype?.bloodType))")
         
         self.lblBloodgroup.text = self.getReadablebloodType(bloodType: bloodtype?.bloodType)
+        loadAndDisplayMostRecentWeight()
     }
     
     
@@ -182,6 +183,8 @@ class UserProfileViewController: UIViewController {
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
             HKObjectType.workoutType(),
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
             
@@ -256,8 +259,7 @@ class UserProfileViewController: UIViewController {
             //2. Convert the height sample to meters, save to the profile model,
             //   and update the user interface.
             let heightInMeters = sample.quantity.doubleValue(for: HKUnit.meter())
-            print("Height is: \(heightInMeters)")
-            self.lblHeight.text = String(describing: heightInMeters)
+            self.lblHeight.text = String(describing: String(format: "%.2f m", heightInMeters))
         }
         
         guard let weight = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
@@ -278,19 +280,7 @@ class UserProfileViewController: UIViewController {
             
             let weightInKilograms = sample.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
             print("Weight is: \(weightInKilograms)")
-            self.lblWeight.text = String(describing: weightInKilograms)
+            self.lblWeight.text = String(describing: String(format: "%.2f kg", weightInKilograms))
         }
     }
-    
-        /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
 }
